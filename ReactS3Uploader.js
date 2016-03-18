@@ -10,7 +10,8 @@ var ReactS3Uploader = React.createClass({
         signingUrl: React.PropTypes.string.isRequired,
         onProgress: React.PropTypes.func,
         onFinish: React.PropTypes.func,
-        onError: React.PropTypes.func
+        onError: React.PropTypes.func,
+        accept: React.PropTypes.string
     },
 
     getDefaultProps: function() {
@@ -38,7 +39,7 @@ var ReactS3Uploader = React.createClass({
     },
 
     render: function() {
-        return React.DOM.input(objectAssign({}, this.props, {type: 'file', onChange: this.uploadFile, accept:'image/png, image/jpeg'}));
+        return React.DOM.input(objectAssign({}, this.props, {type: 'file', onChange: this.uploadFile, accept: this.props.accept}));
     }
 
 });
